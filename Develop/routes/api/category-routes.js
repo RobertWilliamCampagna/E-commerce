@@ -3,6 +3,7 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
+// find all categories - associated Products included
 router.get('/', (req, res) => {
   Category.findAll({
     include: [
@@ -12,15 +13,15 @@ router.get('/', (req, res) => {
       }
     ]
   })
-  })
   .then(resCategory => res.json(resCategory))
   .catch( err => {
     console.log(err);
     res.status(500).json(err);
   });
-  // find all categories
-  // be sure to include its associated Products
+});
 
+
+  // find one category by its `id` value - associated Products included
 router.get('/:id', (req, res) => {
   Category.findOne({
     where: {
@@ -29,14 +30,24 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Product,
-        attributes: ['id']
+        attributes: ['id', 'product_name', 'price']
       }
     ]
   })
-  // find one category by its `id` value
-  // be sure to include its associated Products
+  .then((dbCategoryData) => {
+    if(!dbCategoryData){
+      res.status(404).json({ message: 'There is NO category found with id!'});
+      return;
+    }
+    res.json(dbCategoryData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 });
 
+ // create a new category
 router.post('/', (req, res) => {
   Category.create({
     id: req.body.id,
@@ -46,10 +57,11 @@ router.post('/', (req, res) => {
  .catch(err => {
    console.log(err);
    res.status(500).json(err);
- })
-  // create a new category
+ }) 
 });
 
+
+// update a category by its `id` value
 router.put('/:id', (req, res) => {
   Category.update({
     where: {
@@ -63,9 +75,11 @@ router.put('/:id', (req, res) => {
     }
     res.json(updCategory);
   })
-  // update a category by its `id` value
+  
 });
 
+
+ // delete a category by its `id` value
 router.delete('/:id', (req, res) => {
   Category.destroy ({
     where: {
@@ -79,7 +93,6 @@ router.delete('/:id', (req, res) => {
     }
     res.json(delCategory);
   })
-  // delete a category by its `id` value
 });
 
 module.exports = router;
