@@ -117,11 +117,12 @@ router.put('/:id', (req, res) => {
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
+    
       res.status(400).json(err);
     });
 });
 
+  // delete one product by its `id` value
 router.delete('/:id', (req, res) => {
   Product.destroy({
     where: {
@@ -139,7 +140,7 @@ router.delete('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-  // delete one product by its `id` value
+
 });
 
 module.exports = router;
