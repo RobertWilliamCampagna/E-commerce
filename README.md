@@ -1,4 +1,4 @@
-# Book Search Engine
+# E-commerce Back-End
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ## Table of Contents
@@ -11,25 +11,24 @@
 *[About](#about)
 
 ## Description
-Refactored a complete and working Google Books API search engine built with RESTFUL API to become a GRAPHQL API built with an APOLLO Server.  Modifying midleware will take place to make adjustmetns fit.
+Create schemas and models for E-commerce site's back end for easy addition/removal/update a product.
 
 ## License
 MIT
 
 ## Test
-None
+none
 
 ## Usage
-I did not built this application, just refactored it to be graphql using Apollo server.
+My goal was to add back-end functionality to an emcommerce site for easy addition/subraction/updating a product.
 
 ## Contributors
 Robert William Campagna
 
 ## Installation
-You will have to install Graphql by running npm install graphql.  To run application npm start.
+After setting up DB folder and seeds, run npm run seed to seed data to your data base.  
 
 ## About
-Robert William Campagna
+Robert Campagna
 rwcnyla@gmail.com
 
-  
