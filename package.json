@@ -1,0 +1,24 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "![License](https://img.shields.io/badge/License-MIT-blue.svg) ## Table of Contents *[Description](#description)<br> *[License](#license)<br> *[Test](#test)<br> *[Usage](#usage)<br> *[Contributors](#contributors)<br> *[Installation](#installation)<br> *[About](#about)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobertWilliamCampagna/E-commerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobertWilliamCampagna/E-commerce/issues"
+  },
+  "homepage": "https://github.com/RobertWilliamCampagna/E-commerce#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  }
+}

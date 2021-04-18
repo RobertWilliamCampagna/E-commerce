@@ -14,8 +14,18 @@ router.get('/', (req, res) => {
       }
     ]
   })
+  .then(allTags => {
+    if (!allTags) {
+      res.status(404).json({ message: 'No tag found with this id' });
+      return;
+    }
+    res.json(allTags);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
-
 
 // find a single tag by its `id`
   // be sure to include its associated Product data
@@ -64,7 +74,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   Tag.update(req.body, {
     where: {
-
+      id: req.params.id
     }
   })
 });
